@@ -32,7 +32,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }, [cart]);
 
     useEffect(() => {
-        localStorage.setItem("shopping-cart", storedCart);
+        if(window) window.localStorage.setItem("shopping-cart", storedCart);
     }, [storedCart]);
 
     const total = () => cart.reduce((tot, cur) => tot + (cur.price * cur.count), 0);
