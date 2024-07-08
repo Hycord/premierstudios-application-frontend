@@ -5,7 +5,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/lib/contexts/CartContext";
-import { useShoppingCart } from "@/lib/hooks/useShoppingCart";
 import { getProducts } from "@/lib/products";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { MinusIcon, PlusIcon } from "lucide-react";

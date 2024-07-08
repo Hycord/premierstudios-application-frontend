@@ -15,7 +15,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
     'use client';
 
-    const [storedCart, setStoredCart] = useState<string>(localStorage.getItem("shopping-cart") || "[]");
+    const [storedCart, setStoredCart] = useState<string>(window.localStorage.getItem("shopping-cart") || "[]");
 
     const parseStoredCart = (storedCart: string): CartItem[] => {
         try {

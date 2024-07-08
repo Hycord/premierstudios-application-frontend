@@ -1,7 +1,6 @@
 "use client";
 import { FunctionComponent, useEffect } from "react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
-import { useShoppingCart } from "@/lib/hooks/useShoppingCart";
 import { getProducts } from "@/lib/products";
 import { ChevronDown, ChevronDownIcon, Divide, MinusIcon, PlusIcon, Trash } from "lucide-react";
 import Image from "next/image";
