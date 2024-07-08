@@ -15,12 +15,6 @@ import { redirect } from "next/navigation";
 
 
 
-export async function generateStaticParams() {
-    
-    return getProducts().map((prod) => ({
-      slug: prod.id,
-    }))
-  }
 
 export default function Page({ params: { slug } }: { params: { slug: string[] } }) {
     const product = getProducts().find
