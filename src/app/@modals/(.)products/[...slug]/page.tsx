@@ -34,7 +34,7 @@ export default function Page({ params: { slug } }: { params: { slug: string[] } 
             <CardDescription>{product.description}</CardDescription>
         </CardHeader>
         <CardContent>
-            <CardDescription className="px-10 my-5">
+            <CardDescription className="px-10 my-3">
                 <CardDescription>Rating: {product.rating}</CardDescription>
                 <Carousel
                     opts={{
@@ -55,7 +55,7 @@ export default function Page({ params: { slug } }: { params: { slug: string[] } 
             <CardDescription>
                 {product.shippingInformation}
             </CardDescription>
-                <Separator orientation="horizontal" className="my-5"/>
+                <Separator orientation="horizontal" className="my-3"/>
 
             {product.brand ? <CardDescription>Brand: {product.brand}</CardDescription> : <></>}
             <CardDescription>Category: {product.category}</CardDescription>
