@@ -12,7 +12,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
 
   return (
     <div
-      className='w-screen h-screen overflow-hidden fixed top-0 left-0 backdrop-blur-md flex flex-col items-center justify-center'
+      className='w-full h-full overflow-hidden fixed top-0 left-0 backdrop-blur-md flex flex-col items-center justify-center'
       onClick={handleClose}
     >
       <button
