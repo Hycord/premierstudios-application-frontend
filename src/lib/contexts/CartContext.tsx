@@ -15,7 +15,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
     'use client';
 
-    const [storedCart, setStoredCart] = useState<string>(window.localStorage.getItem("shopping-cart") || "[]");
+    const [storedCart, setStoredCart] = useState<string>(typeof window == "undefined" ? "[]" : window.localStorage.getItem("shopping-cart") ?? "[]");
 
     const parseStoredCart = (storedCart: string): CartItem[] => {
         try {
@@ -32,7 +32,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }, [cart]);
 
     useEffect(() => {
-        if(window) window.localStorage.setItem("shopping-cart", storedCart);
+        if(typeof window !== "undefined") window.localStorage.setItem("shopping-cart", storedCart);
     }, [storedCart]);
 
     const total = () => cart.reduce((tot, cur) => tot + (cur.price * cur.count), 0);
