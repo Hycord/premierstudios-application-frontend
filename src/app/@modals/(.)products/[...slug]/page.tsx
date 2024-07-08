@@ -26,7 +26,7 @@ export default function Page({ params: { slug } }: { params: { slug: string[] } 
     if (!item) item = { count: 0, id: product.id, price: (product.price - (product.price * (product.discountPercentage / 100))) }
 
 
-    return <Modal><Card className="w-[65ch]">
+    return <Modal><Card className="max-w-[65ch]">
         <CardHeader>
             <CardTitle className="flex flex-row items-center">
                 {product.title}</CardTitle>

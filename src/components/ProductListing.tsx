@@ -9,7 +9,7 @@ interface ProductListingProps {
 }
 
 const ProductListing: FunctionComponent<ProductListingProps> = ({ product }) => {
-    return (<Card className="flex-row w-[65ch]">
+    return (<Card className="flex-row max-w-[65ch]">
         <CardHeader>
             <CardTitle className="flex flex-row items-center">
                 <Image alt={`${product.title} thumbnail`} src={product.thumbnail} width={64} height={64}></Image>

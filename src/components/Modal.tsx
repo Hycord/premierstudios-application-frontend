@@ -1,5 +1,6 @@
 'use client'
 
+import { X } from 'lucide-react';
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
@@ -16,16 +17,16 @@ export function Modal({ children }: { children: React.ReactNode }) {
       onClick={handleClose}
     >
       <button
-        className='absolute top-5 right-5'
+        className='fixed top-5 right-5 z-20'
         onClick={(e) => {
           e.stopPropagation();
           handleClose();
         }}
       >
-        Close modal
+        <X/>
       </button>
       <div
-        className='relative z-10'
+        className='relative z-10 max-w-[65ch] w-full'
         onClick={(e) => e.stopPropagation()}
       >
         {children}

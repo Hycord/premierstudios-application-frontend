@@ -15,7 +15,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-4 md:gap-8 lg:col-span-2">
             {products.map(p => <ProductListing key={p.id} product={p} />)}
           </div>
-          <div className="w-full sticky bottom-5 pr-5 rounded-md lg:top-5">
+          <div className="w-full sticky bottom-5 rounded-md lg:top-5">
             <ShoppingCart />
           </div>
         </main>
