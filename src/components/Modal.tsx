@@ -17,7 +17,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
       onClick={handleClose}
     >
       <button
-        className='fixed top-5 right-5 z-20'
+        className='fixed top-5 right-5 z-30'
         onClick={(e) => {
           e.stopPropagation();
           handleClose();
@@ -26,7 +26,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
         <X/>
       </button>
       <div
-        className='relative z-10 max-w-[65ch] w-full'
+        className='relative z-20 max-w-[65ch] w-full'
         onClick={(e) => e.stopPropagation()}
       >
         {children}

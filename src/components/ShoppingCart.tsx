@@ -51,7 +51,7 @@ const ShoppingCart: FunctionComponent<ShoppingCartProps> = () => {
                                             <PlusIcon className="h-4 w-4" />
                                         </Button>
                                     </div>
-                                <span>$<span className="[text-decoration:line-through] text-red-500 text-sm">{(i.count * item.price).toFixed(2)}</span><span className="text-green-500">{(i.count * item.price - (item.price * (item.discountPercentage / 100))).toFixed(2)}</span></span>
+                                <span>$<span>{(i.count * i.price).toFixed(2)}</span></span>
                                 </div>
                             </div>)
                         })}

@@ -43,6 +43,7 @@ interface Product {
 interface CartItem {
     id: Product["id"];
     price: number;
+    discount: number;
     count: number;
 }
 

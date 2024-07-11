@@ -39,7 +39,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
     const empty = () => setCart([]);
 
-    const setProduct = (productId: number, count: { add?: number; set?: number }, price?: number) => {
+    const setProduct = (productId: number, count: { add?: number; set?: number }, price?: number, discount?: number) => {
         setCart((prevCart) => {
             const productIndex = prevCart.findIndex(item => item.id === productId);
 
@@ -50,12 +50,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
                 if (newCount <= 0) {
                     updatedCart.splice(productIndex, 1);
                 } else {
-                    updatedCart[productIndex] = { ...updatedCart[productIndex], count: newCount, price: price ?? updatedCart[productIndex].price };
+                    updatedCart[productIndex] = { ...updatedCart[productIndex],count: newCount, price: price ?? updatedCart[productIndex].price };
                 }
 
                 return updatedCart;
             } else if (count.add ?? count.set ?? 0 > 0) {
-                return [...prevCart, { id: productId, count: (count.add ?? 0) + (count.set ?? 0), price: price ?? 0 }];
+                return [...prevCart, { discount: discount ?? 0, id: productId, count: (count.add ?? 0) + (count.set ?? 0), price: price ?? 0 }];
             }
 
             return prevCart;

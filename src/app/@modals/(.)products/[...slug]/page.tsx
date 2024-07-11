@@ -23,7 +23,7 @@ export default function Page({ params: { slug } }: { params: { slug: string[] } 
     if (!product) return redirect('/')
     let item = cart.find(p => p.id == product.id);
 
-    if (!item) item = { count: 0, id: product.id, price: (product.price - (product.price * (product.discountPercentage / 100))) }
+    if (!item) item = { count: 0, discount: product.discountPercentage, id: product.id, price: product.price }
 
 
     return <Modal><Card className="max-w-[65ch]">
@@ -55,7 +55,7 @@ export default function Page({ params: { slug } }: { params: { slug: string[] } 
             <CardDescription>
                 {product.shippingInformation}
             </CardDescription>
-                <Separator orientation="horizontal" className="my-3"/>
+            <Separator orientation="horizontal" className="my-3" />
 
             {product.brand ? <CardDescription>Brand: {product.brand}</CardDescription> : <></>}
             <CardDescription>Category: {product.category}</CardDescription>
@@ -71,13 +71,15 @@ export default function Page({ params: { slug } }: { params: { slug: string[] } 
                     <span className="text-green-500">{(product.price - (product.price * (product.discountPercentage / 100))).toFixed(2)}</span>
                 </span>
                 <div className="flex items-center gap-1">
-                    <Button disabled={item.count <= 0} variant="ghost" size="icon" onClick={() => setProduct(product.id, { add: -1 }, (product.price - (product.price * (product.discountPercentage / 100))))}>
+                    {((item.count ?? 0) == 0) ? (<><Button variant="secondary" onClick={() => setProduct(product.id, { add: 1 }, (product.price - (product.price * (product.discountPercentage / 100))))}>
+                            Add to cart
+                        </Button></>) : (<><Button disabled={item.count <= 0} variant="ghost" size="icon" onClick={() => setProduct(product.id, { add: -1 }, (product.price - (product.price * (product.discountPercentage / 100))))}>
                         <MinusIcon className="h-4 w-4" />
                     </Button>
-                    <span>{item?.count ?? 0}</span>
-                    <Button variant="ghost" size="icon" onClick={() => setProduct(product.id, { add: 1 }, (product.price - (product.price * (product.discountPercentage / 100))))}>
-                        <PlusIcon className="h-4 w-4" />
-                    </Button>
+                        <span>{item?.count ?? 0}</span>
+                        <Button variant="ghost" size="icon" onClick={() => setProduct(product.id, { add: 1 }, (product.price - (product.price * (product.discountPercentage / 100))))}>
+                            <PlusIcon className="h-4 w-4" />
+                        </Button></>)}
                 </div>
             </div>
         </CardFooter>
